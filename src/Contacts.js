@@ -1,4 +1,5 @@
 import React from 'react'
+import Contact from './Contact';
 
 function Contacts({ contacts }) {
   const hasContacts = contacts.length > 0;
@@ -7,14 +8,7 @@ function Contacts({ contacts }) {
     return (
       <>
         {contacts.map((contact) =>
-          <React.Fragment key={contact.id}>
-            <h3 key={contact.id} className='contact'>
-              {contact.firstName}&nbsp;{contact.lastName}
-            </h3>
-            <p>{contact.email}</p>
-            <p>{contact.phone}</p>
-            <p>{contact.status}</p>
-          </React.Fragment>
+          <Contact contact={contact} key={contact.id} />
         )}
       </>
     )
