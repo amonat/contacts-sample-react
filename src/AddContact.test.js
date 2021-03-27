@@ -54,7 +54,10 @@ describe('submitting', () =>{
     setEmail('Email');
     const saveButton = screen.getByRole('button', { name: 'Save contact' });
     fireEvent.click(saveButton);
-    const alert = screen.queryByRole('alert');
-    expect(alert).toBeNull();
+
+    // After saving, there is no alert, and Save contact has been replaced with Add contact
+    expect(screen.queryByRole('alert')).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Save contact' })).toBeNull();
+    expect(screen.getByRole('button', { name: 'Add contact' })).toBeInTheDocument();
   });
 });
