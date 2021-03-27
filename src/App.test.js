@@ -9,6 +9,10 @@ const setFirstName = (value) => { setTextField('First name', value) };
 const setLastName = (value) => { setTextField('Last name', value) };
 const setEmail = (value) => { setTextField('Email', value) };
 const setPhone = (value) => { setTextField('Phone', value) };
+const setActive = (value) => {
+  const activeCheckbox = screen.getByLabelText('Active');
+  fireEvent.click(activeCheckbox);
+};
 
 test('renders title', () => {
   render(<App />);
@@ -26,6 +30,7 @@ describe('adding a contact', () => {
     setLastName('Person');
     setEmail('newemail');
     setPhone('newphone');
+    setActive(false);
     const saveButton = screen.getByRole('button', { name: 'Save contact' });
     fireEvent.click(saveButton);
 
@@ -38,5 +43,7 @@ describe('adding a contact', () => {
     expect(newContactEmail).toBeInTheDocument();
     const newContactPhone = screen.getByText(/newphone/);
     expect(newContactPhone).toBeInTheDocument();
+    const newContactActive = screen.getByText(/inactive/i);
+    expect(newContactActive).toBeInTheDocument();
   });
 });

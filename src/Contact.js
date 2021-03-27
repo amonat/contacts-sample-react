@@ -8,7 +8,7 @@ function Contact({ contact }) {
       </h3>
       <p>{contact.email}</p>
       <p>{contact.phone}</p>
-      <p>{contact.status}</p>
+      <p>{contact.active ? 'Active' : 'Inactive'}</p>
     </React.Fragment>
   )
 }

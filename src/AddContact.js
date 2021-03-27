@@ -31,7 +31,7 @@ function AddContact({ onAdd, startsOpen }) {
       return;
     }
 
-    onAdd({ firstName, lastName, email, phone });
+    onAdd({ firstName, lastName, email, phone, active });
 
     setOpen(false);
     setFirstName('');
