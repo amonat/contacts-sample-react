@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Contacts from './Contacts';
 
 test('renders message when no contacts are shown', () => {
@@ -10,8 +10,8 @@ test('renders message when no contacts are shown', () => {
 
 test('renders contacts passed to it', () => {
   const contacts = [
-    { id: 1, firstName: 'First1', lastName: 'Last1', },
-    { id: 2, firstName: 'First2', lastName: 'Last2', },
+    { id: 1, firstName: 'First1', lastName: 'Last1', email: 'Email1' },
+    { id: 2, firstName: 'First2', lastName: 'Last2', email: 'Email2' },
   ];
   render(<Contacts contacts={contacts} />);
 

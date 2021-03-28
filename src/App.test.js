@@ -97,3 +97,22 @@ test('edits a contact', () => {
   const newContactActive = screen.getByText(/inactive/i);
   expect(newContactActive).toBeInTheDocument();
 });
+
+test('deletes a contact', () => {
+  render(<App />);
+  const contactInfo = {
+    firstName: 'New',
+    lastName: 'Person',
+    email: 'newemail',
+    phone: 'newphone',
+    active: false,
+  };
+
+  addContact(contactInfo);
+  expect(screen.getByText(/New Person/)).toBeInTheDocument();
+
+  const deleteButton = screen.getByRole('button', { name: 'Edit' });
+  fireEvent.click(deleteButton);
+
+  expect(screen.queryByText(/New Person/)).toBeNull();
+});

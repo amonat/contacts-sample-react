@@ -42,4 +42,26 @@ describe('editing', () => {
     const saveButton = screen.getByRole('button', { name: 'Save contact' });
     expect(saveButton).toBeInTheDocument();
   });
+
+  describe('deleting', () => {
+    it('has a Delete button', () => {
+      const contact = sampleContact;
+      render(<Contact contact={contact} />);
+
+      const deleteButton = screen.getByRole('button', { name: 'Delete' });
+      expect(deleteButton).toBeInTheDocument();
+    });
+
+    it('calls the delete callback when Delete is clicked', () => {
+      const contact = sampleContact;
+
+      let onDeleteContactCalls = 0;
+      render(<Contact contact={contact} onDeleteContact={() => onDeleteContactCalls++ } />);
+
+      const deleteButton = screen.getByRole('button', { name: 'Delete' });
+      fireEvent.click(deleteButton);
+
+      expect(onDeleteContactCalls).toEqual(1);
+    });
+  });
 });

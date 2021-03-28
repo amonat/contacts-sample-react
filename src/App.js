@@ -13,13 +13,26 @@ function App() {
   };
 
   const onUpdateContact = (contact) => {
-    const index = contacts.findIndex(c => c.id === contact.id);
-    if (index === undefined) {
-      throw new Error(`Can not find contact with id ${contact.id} to update`);
-    }
+    const index = findContactIndex(contact);
     const updated = [...contacts.slice(0, index), contact, ...contacts.slice(index + 1)]
     setContacts(updated);
   };
+
+  const onDeleteContact = (contact) => {
+    const index = findContactIndex(contact);
+    const updated = [...contacts.slice(0, index), ...contacts.slice(index + 1)]
+    setContacts(updated);
+  };
+
+  const findContactIndex = (contact) => {
+    const index = contacts.findIndex(c => c.id === contact.id);
+
+    if (index === undefined) {
+      throw new Error(`Can not find contact with id ${contact.id} to update`);
+    } else {
+      return index;
+    }
+  }
 
   let [contacts, setContacts] = useState(initialContacts);
 
@@ -29,7 +42,11 @@ function App() {
         <h1>Contact Tracker</h1>
       </header>
       <AddContact onAddContact={onAddContact} />
-      <Contacts contacts={contacts} onUpdateContact={onUpdateContact} />
+      <Contacts
+        contacts={contacts}
+        onUpdateContact={onUpdateContact}
+        onDeleteContact={onDeleteContact}
+      />
     </div>
   );
 }

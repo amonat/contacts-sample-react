@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
 
-function Contact({ contact, onUpdateContact }) {
+function Contact({ contact, onUpdateContact, onDeleteContact }) {
   let [editing, setEditing] = useState(false);
 
   const editContact = () => {
     setEditing(true);
+  };
+
+  const deleteContact = () => {
+    onDeleteContact(contact);
   };
 
   const onSave = (updatedContact) => {
@@ -31,6 +35,7 @@ function Contact({ contact, onUpdateContact }) {
         <p>{contact.phone}</p>
         <p>{contact.active ? 'Active' : 'Inactive'}</p>
         <button type='button' onClick={editContact}>Edit</button>
+        <button type='button' onClick={deleteContact}>Delete</button>
       </React.Fragment>
     )
   }
