@@ -1,14 +1,14 @@
 import React from 'react'
 import Contact from './Contact';
 
-function Contacts({ contacts }) {
+function Contacts({ contacts, onUpdateContact }) {
   const hasContacts = contacts.length > 0;
 
   if (hasContacts) {
     return (
       <>
         {contacts.map((contact) =>
-          <Contact contact={contact} key={contact.id} />
+          <Contact contact={contact} key={contact.id} onUpdateContact={onUpdateContact} />
         )}
       </>
     )
