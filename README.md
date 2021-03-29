@@ -2,6 +2,16 @@
 
 This is a sample single-page application for managing contacts built in React.
 
+## Running the application
+Here are the steps to run the application:
+1. Clone the git repository.
+1. `cd` to the folder where the git repository was cloned to.
+1. Run `npm install`.
+1. Run `yarn test`, then type `a` to run all the tests. It should take a few seconds to run, and all the tests should show as green and say they passed. Then type `q` to exit the test runner interface.
+1. Run `yarn start`. This will run the application, and open a web browser window to http://localhost:3000/ where you can see it run.
+
+## Application functionality
+
 The application allows creating contacts with the following fields:
 1. First name
 1. Last name
