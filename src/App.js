@@ -39,14 +39,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Contact Tracker</h1>
+        <h1 className="App-title">Contact Tracker</h1>
       </header>
-      <AddContact onAddContact={onAddContact} />
-      <Contacts
-        contacts={contacts}
-        onUpdateContact={onUpdateContact}
-        onDeleteContact={onDeleteContact}
-      />
+      <div className='App-body'>
+        <AddContact onAddContact={onAddContact} />
+        <Contacts
+          contacts={contacts}
+          onUpdateContact={onUpdateContact}
+          onDeleteContact={onDeleteContact}
+        />
+      </div>
     </div>
   );
 }

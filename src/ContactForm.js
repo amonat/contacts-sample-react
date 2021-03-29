@@ -48,63 +48,61 @@ function ContactForm({ onSave, onCancel, contact={} }) {
   return (
     <>
       { error && <p role='alert' className='error'>{error}</p>}
-      <form onSubmit={onSubmit}>
-        <div className='form-field'>
-          <label htmlFor={firstNameId}>First name</label>
-          <input
-            id={firstNameId}
-            type='text'
-            placeholder='First name'
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-          />
+      <form onSubmit={onSubmit} className='contact-form'>
+        <div className='contact-form-fields'>
+          <div className='form-field'>
+            <div><label htmlFor={firstNameId}>First name</label></div>
+            <input
+              id={firstNameId}
+              type='text'
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
+            />
+          </div>
+
+          <div className='form-field'>
+            <div><label htmlFor={lastNameId}>Last name</label></div>
+            <input
+              id={lastNameId}
+              type='text'
+              value={lastName}
+              onChange={(event) => setLastName(event.target.value)}
+            />
+          </div>
+
+          <div className='form-field'>
+            <div><label htmlFor={emailId}>Email</label></div>
+            <input
+              id={emailId}
+              type='text'
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+
+          <div className='form-field'>
+            <div><label htmlFor={phoneId}>Phone</label></div>
+            <input
+              id={phoneId}
+              type='text'
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+            />
+          </div>
+
+          <div className='form-field'>
+            <label htmlFor={activeId}>Active</label>
+            <input
+              id={activeId}
+              type='checkbox'
+              checked={active}
+              onChange={(event) => setActive(event.currentTarget.checked)}
+            />
+          </div>
         </div>
 
-        <div className='form-field'>
-          <label htmlFor={lastNameId}>Last name</label>
-          <input
-            id={lastNameId}
-            type='text'
-            placeholder='Last name'
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
-          />
-        </div>
-
-        <div className='form-field'>
-          <label htmlFor={emailId}>Email</label>
-          <input
-            id={emailId}
-            type='text'
-            placeholder='Email'
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </div>
-
-        <div className='form-field'>
-          <label htmlFor={phoneId}>Phone</label>
-          <input
-            id={phoneId}
-            type='text'
-            placeholder='Phone'
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
-          />
-        </div>
-
-        <div className='form-field'>
-          <label htmlFor={activeId}>Active</label>
-          <input
-            id={activeId}
-            type='checkbox'
-            checked={active}
-            onChange={(event) => setActive(event.currentTarget.checked)}
-          />
-        </div>
-
-        <button type='submit' onClick={onSubmit}>Save contact</button>
-        <button type='button' onClick={onCancel}>Cancel</button>
+        <button className='btn' type='submit' onClick={onSubmit}>Save contact</button>
+        <button className='btn' type='button' onClick={onCancel}>Cancel</button>
       </form>
     </>
   );

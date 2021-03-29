@@ -4,13 +4,80 @@
 
 .App-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.App-title {
+  margin-bottom: 10px;
+}
+
+.App-body {
+  margin-left: 1em;
+}
+
+.margin-zero {
+  margin: 0;
+}
+
+.btn {
+  color: #000;
+  background-color: #eee;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.btn-primary-action {
+  background-color: green;
+  color: #fff;
+}
+
 .contact {
-  margin: 10px 0;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  background-color: #eee;
+}
+
+.contact-contents {
+  margin-bottom: 0.5em;
+}
+
+.contact-contents h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-contents p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.contact-buttons .btn {
+  margin-right: 1em;
+}
+
+.add-contact-form {
+  padding: 10px;
+  background-color: #eee;
+}
+
+.contact-form .btn {
+  margin-right: 1em;
+}
+
+.contact-form label {
+  font-size: 12px;
+}
+
+.contact-form-fields {
+  margin-bottom: 1em;
+}
+
+.form-field {
+  margin-bottom: 0.5em;
 }

@@ -17,11 +17,14 @@ function AddContact({ onAddContact }) {
 
   if (isOpen) {
     return (
-      <ContactForm onSave={onSave} onCancel={onCancel} />
+      <div className='add-contact-form'>
+        <h3 className='margin-zero'>New contact</h3>
+        <ContactForm onSave={onSave} onCancel={onCancel} />
+      </div>
     );
   } else {
     return (
-      <button type='submit' onClick={() => { showForm(true) }}>Add contact</button>
+      <button className='btn btn-primary-action' type='submit' onClick={() => { showForm(true) }}>Add contact</button>
     )
   }
 }

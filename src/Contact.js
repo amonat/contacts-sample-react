@@ -23,20 +23,26 @@ function Contact({ contact, onUpdateContact, onDeleteContact }) {
 
   if (editing) {
     return (
-      <ContactForm onSave={onSave} onCancel={onCancel} contact={contact} />
+      <div className='contact'>
+        <ContactForm onSave={onSave} onCancel={onCancel} contact={contact} />
+      </div>
     );
   } else {
     return (
-      <React.Fragment key={contact.id}>
-        <h3 className='contact'>
-          {`${contact.firstName} ${contact.lastName}`}
-        </h3>
-        <p>{contact.email}</p>
-        <p>{contact.phone}</p>
-        <p>{contact.active ? 'Active' : 'Inactive'}</p>
-        <button type='button' onClick={editContact}>Edit</button>
-        <button type='button' onClick={deleteContact}>Delete</button>
-      </React.Fragment>
+      <div key={contact.id} className='contact'>
+        <div className='contact-contents'>
+          <h3>
+            {`${contact.firstName} ${contact.lastName}`}
+          </h3>
+          <p>{contact.email}</p>
+          <p>{contact.phone}</p>
+          <p>{contact.active ? 'Active' : 'Inactive'}</p>
+        </div>
+        <div className='contact-buttons'>
+          <button className='btn' type='button' onClick={editContact}>Edit</button>
+          <button className='btn' type='button' onClick={deleteContact}>Delete</button>
+        </div>
+      </div>
     )
   }
 }
